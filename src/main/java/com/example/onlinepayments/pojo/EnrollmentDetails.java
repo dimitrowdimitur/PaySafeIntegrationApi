@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EnrollmentDetails {
-    String merchantRefNum;
-    int amount;
-    String currency;
-    String customerIp;
-    String userAgent;
-    String acceptHeader;
-    String merchantUrl;
-    Card card;
+    private String merchantRefNum;
+    private int amount;
+    private String currency;
+    private String customerIp;
+    private String userAgent;
+    private String acceptHeader;
+    private String merchantUrl;
+    private Card card;
 
     /**
      * @return

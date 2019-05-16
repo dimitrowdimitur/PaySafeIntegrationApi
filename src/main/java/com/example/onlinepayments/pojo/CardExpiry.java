@@ -1,8 +1,8 @@
 package com.example.onlinepayments.pojo;
 
 public class CardExpiry {
-    int month;
-    int year;
+    private int month;
+    private int year;
 
     public CardExpiry(int month, int year) {
         this.month = month;

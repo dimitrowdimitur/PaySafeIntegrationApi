@@ -1,8 +1,8 @@
 package com.example.onlinepayments.pojo;
 
 public class Card {
-    String cardNum;
-    CardExpiry cardExpiry;
+    private String cardNum;
+    private CardExpiry cardExpiry;
 
     /**
      * @return
