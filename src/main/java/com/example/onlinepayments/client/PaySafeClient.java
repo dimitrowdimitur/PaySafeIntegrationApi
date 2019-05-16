@@ -1,7 +1,6 @@
 package com.example.onlinepayments.client;
 
 import com.example.onlinepayments.pojo.EnrollmentDetails;
-import com.example.onlinepayments.util.StringConcatenationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.client.support.BasicAuthenticationInterceptor;
@@ -13,8 +12,7 @@ public class PaySafeClient {
 
     @Autowired
     private RestTemplate restTemplate;
-    @Autowired
-    private StringConcatenationUtil stringConcatenationUtil;
+
 
     private final String baseUrl;
     private final String enrollmentEndpoint;
@@ -45,7 +43,7 @@ public class PaySafeClient {
      */
     public String enroll(EnrollmentDetails inputRequest, String userName, String password, String accountId){
         restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor(userName, password));
-        return restTemplate.postForObject(stringConcatenationUtil.concat(baseUrl, enrollmentEndpoint),
+        return restTemplate.postForObject(baseUrl.concat(enrollmentEndpoint),
                 inputRequest, String.class, accountId);
     }
 
@@ -55,6 +53,6 @@ public class PaySafeClient {
      * @return
      */
     public String verify(){
-        return restTemplate.getForObject(stringConcatenationUtil.concat(baseUrl, verifyEndpoint), String.class);
+        return restTemplate.getForObject(baseUrl.concat(verifyEndpoint), String.class);
     }
 }
